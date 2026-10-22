@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,50 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
 <h1>Les films du Studio Ghibli</h1>
-<p>Bienvenue dans l'exploration des films Ghibli !</p>
+<p>Découvrez les films du Studio Ghibli.</p>
+
+<form action="/films" method="get">
+    <input type="text" name="recherche"
+           th:value="${recherche}"
+           placeholder="Rechercher un film...">
+    <button type="submit">Rechercher</button>
+</form>
+
+<p th:if="${erreur != null}" th:text="${erreur}"></p>
+
+<div th:if="${films != null and !films.isEmpty()}">
+    <div th:each="film : ${films}">
+        <h2 th:text="${film.title}">Titre du film</h2>
+
+        <img th:if="${film.image != null and !film.image.isEmpty()}"
+             th:src="${film.image}"
+             th:alt="${film.title}"
+             style="width: 200px;">
+
+        <p>
+            <strong>Réalisateur :</strong>
+            <span th:text="${film.director}"></span>
+        </p>
+
+        <p>
+            <strong>Sortie :</strong>
+            <span th:text="${film.releaseDate}"></span>
+        </p>
+
+        <a th:href="@{/films/{id}(id=${film.id})}">
+            Voir les détails
+        </a>
+        <hr>
+    </div>
+</div>
+
+<p th:if="${films != null and films.isEmpty() and erreur == null}">
+    Aucun film trouvé.
+</p>
 
 <a href="/">Retour à l'accueil</a>
+
 </body>
 </html>
