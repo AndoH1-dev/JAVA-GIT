@@ -1,4 +1,4 @@
-# 🎬 Ghibli Explorer
+# Ghibli Explorer
 
 **Application web de découverte des films du Studio Ghibli**, développée dans le cadre du cours **Java Avancé (M1)** à SUP DE VINCI, encadré par **Jérôme Bâton**.
 
@@ -159,15 +159,16 @@ Sous PowerShell, remplacer `./mvnw` par `.\mvnw.cmd`.
 - **À confirmer :** résultat de recherche, fiche détaillée, tests automatisés et gestion des erreurs en situation réelle.
 - **Non inclus dans le socle :** traduction automatique, option facultative proposée par le formateur.
 
-## Travail en binôme
+## Équipe et répartition du travail
 
-Le développement a été organisé sur des branches Git distinctes :
+**Projet réalisé en binôme :**
 
-- `feature/films` : modèle Java, service d'accès à l'API Ghibli, contrôleur, catalogue et recherche.
-- `feature/interface` : templates Thymeleaf, mise en page et navigation.
-- `main` : branche d'intégration destinée au rendu final.
+| Étudiant | Responsabilités principales | Branche Git |
+| --- | --- | --- |
+| **Andil ABAYOMI** | Initialisation du projet Spring Boot/Maven et du dépôt Git, modèle `Film`, intégration de l’API Ghibli avec `RestClient`, `GhibliService`, `FilmController`, récupération du catalogue, recherche par titre et gestion des erreurs côté backend. | `feature/films` |
+| **Thomas VALLET** | Développement de l’interface web avec Thymeleaf et CSS, mise en page du catalogue et des fiches de films, navigation entre les pages et adaptation de l’affichage. | `feature/interface` |
 
-Les modifications sont réunies dans `main` après vérification et fusion des Pull Requests.
+**Intégration commune :** fusion des branches dans `main`, vérifications fonctionnelles, corrections et préparation du rendu. Les tests automatisés sont documentés ci-dessus ; leur exécution doit être confirmée avant livraison.
 
 ## Cadre pédagogique
 
@@ -175,7 +176,7 @@ Les modifications sont réunies dans `main` après vérification et fusion des P
 **Cours :** D41 Java Avancé — M1  
 **Formateur :** Jérôme Bâton  
 **Sujet :** application web Spring Boot basée sur une API REST publique  
-**Réalisation :** travail en binôme
+**Étudiants :** Andil ABAYOMI et Thomas VALLET
 
 ## Améliorations envisageables
 
